@@ -28,3 +28,7 @@ cd geocoding-task
 docker build -t geocoding-image .
 docker run -it --rm -p 5000:5000 --name geocoding geocoding-image:0.1
 ```
+
+* **Talking to the API**
+  * JSON Result: `http://localhost:5000/api/json?address=Cairo`
+  * XML Result: `http://localhost:5000/api/xml?address=Alex Egypt`
