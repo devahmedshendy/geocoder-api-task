@@ -1,13 +1,13 @@
-package shendy.assessment;
+package task.geocoder;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GeocodingAssessmentApplication {
+public class GeocoderApiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GeocodingAssessmentApplication.class, args);
+		SpringApplication.run(GeocoderApiApplication.class, args);
 	}
 	
 }

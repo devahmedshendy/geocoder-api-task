@@ -1,5 +1,6 @@
 FROM java:alpine
 EXPOSE 5000
-WORKDIR /opt/app
-ADD ./target/geocoding-task-0.1.jar /opt/app
-CMD ["java", "-jar", "./geocoding-task-0.1.jar"]
+VOLUME /tmp
+ARG JAR_FILE
+ADD ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]

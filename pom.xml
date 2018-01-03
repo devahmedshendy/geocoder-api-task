@@ -3,52 +3,38 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>shendy.assessment</groupId>
-	<artifactId>geocoding-task</artifactId>
-	<version>0.1</version>
+	<groupId>task.geocoder</groupId>
+	<artifactId>goecoder-api-task</artifactId>
+	<version>0.2</version>
 	<packaging>jar</packaging>
 
-	<name>geocoding-task</name>
+	<name>goecoder-api-task</name>
 	<description>Assessment of Junior Java / Spring Boot</description>
 
-	<!-- <parent>
+	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.9.RELEASE</version>
-		<relativePath/> lookup parent from repository
-	</parent> -->
-	
-	<parent>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-parent</artifactId>
-	    <version>2.0.0.M7</version>
+		<!-- <relativePath/> lookup parent from repository -->
 	</parent>
-
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<junit.platform.version>1.0.2</junit.platform.version>
+    <junit.jupiter.version>5.0.2</junit.jupiter.version>
+    <junit.vintage.version>4.12.2</junit.vintage.version>
+    <logback.version>1.2.3</logback.version>
+    <apache.camel.version>2.20.1</apache.camel.version>
 		<java.version>1.8</java.version>
 	</properties>
 
-	<dependencies>
-	
-		<!-- Google Geocoding API -->
-		<dependency>
-		    <groupId>com.google.maps</groupId>
-		    <artifactId>google-maps-services</artifactId>
-		    <version>0.2.5</version>
-		</dependency>
-		<!-- <dependency>
-		    <groupId>org.slf4j</groupId>
-		    <artifactId>slf4j-nop</artifactId>
-		</dependency> -->
-	
+	<dependencies>	
 	  <!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -59,6 +45,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+    <!-- Apache Camel Geocoder -->
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-spring-boot-starter</artifactId>
+        <version>${apache.camel.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-geocoder-starter</artifactId>
+        <version>${apache.camel.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-servlet-starter</artifactId>
+        <version>${apache.camel.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-swagger-java-starter</artifactId>
+        <version>${apache.camel.version}</version>
+    </dependency>
+
+    <dependency>
+        <groupId>org.apache.camel</groupId>
+        <artifactId>camel-jackson-starter</artifactId>
+        <version>${apache.camel.version}</version>
+    </dependency>
 		
 		<!-- Others -->
 		<dependency>
@@ -78,9 +94,69 @@
 		    <artifactId>woodstox-core-asl</artifactId>
 		    <version>4.4.1</version>
 		</dependency>
+		
+		<!-- Testing -->
+		<!-- <dependency>
+		  <groupId>org.apache.camel</groupId>
+		  <artifactId>camel-test</artifactId>
+		  <version>${apache.camel.version}</version>
+		</dependency> -->
+		
+		<dependency>
+		    <groupId>org.apache.camel</groupId>
+		    <artifactId>camel-test-spring</artifactId>
+		    <version>${apache.camel.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-runner</artifactId>
+      <version>${junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-launcher</artifactId>
+		    <version>${junit.platform.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.vintage</groupId>
+		    <artifactId>junit-vintage-engine</artifactId>
+		    <version>${junit.vintage.version}</version>
+		    <scope>test</scope>
+		</dependency>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-console-standalone</artifactId>
+      <version>${junit.platform.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-core</artifactId>
+		    <scope>test</scope>
+		</dependency>
+    <!-- <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+    </dependency> -->
 	</dependencies>
 	
-	<repositories>
+	<!-- <repositories>
 	    <repository>
 	        <id>spring-milestones</id>
 	        <name>Spring Milestones</name>
@@ -100,7 +176,7 @@
               <enabled>false</enabled>
           </snapshots>
       </pluginRepository>
-   </pluginRepositories>
+   </pluginRepositories> -->
 
 	<build>
 		<extensions>
@@ -116,6 +192,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+				  <source>${java.version}</source>
+				  <target>${java.version}</target>
 				  <excludeDevtools>false</excludeDevtools>
 				</configuration>
 			</plugin>
@@ -134,7 +212,7 @@
 		      </execution>
 		    </executions>
 			  <configuration>
-			    <repository>devahmedshendy/geocoding-task</repository>
+			    <repository>devahmedshendy/goecoder-api</repository>
 			    <tag>${project.version}</tag>
 			    <buildArgs>
 			      <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
@@ -143,6 +221,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
