@@ -15,14 +15,14 @@ The response would contain the formatted address, as well as latitude and longit
 ## Run The Application
 * **Run As Spring Boot**
 ```
-git clone https://github.com/devahmedshendy/geocoding-api-task.git geocoder
+git clone https://github.com/devahmedshendy/geocoder-api-task.git geocoder
 cd geocoder
 mvn spring-boot:run
 ```
 
 * **Run As Docker Container**
 ```
-git clone https://github.com/devahmedshendy/geocoding-api-task.git geocoder
+git clone https://github.com/devahmedshendy/geocoder-api-task.git geocoder
 cd geocoder
 mvn clean package
 docker run -it --rm -p 5000:5000 --name geocoder devahmedshendy/geocoder-api:0.2
