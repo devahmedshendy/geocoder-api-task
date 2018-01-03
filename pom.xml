@@ -212,7 +212,7 @@
 		      </execution>
 		    </executions>
 			  <configuration>
-			    <repository>devahmedshendy/goecoder-api</repository>
+			    <repository>devahmedshendy/geocoder-api</repository>
 			    <tag>${project.version}</tag>
 			    <buildArgs>
 			      <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
