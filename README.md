@@ -2,6 +2,11 @@
 A JSON-based RESTful API, an end-point that will accept address as a single string and use this address parameter to query Google API, that should be consumed using XML format.
 The response would contain the formatted address, as well as latitude and longitude of the address.
 
+## Task Requirements
+  * Solution is implemented using Spring Boot Integartion Microservice
+  * Apache Camel for building the actual integration
+  * Maven for compiling and building the application
+
 ## Core Components
   * Spring Boot: 1.5.9.RELEASE
     * spring-boot-starter-web, spring-boot-devtools, spring-boot-starter-test
