@@ -26,6 +26,8 @@ mvn spring-boot:run
 ```
 
 * **Run As Docker Container**
+
+  **NOTE**: Please have the Docker engine running for this build to run.
 ```
 git clone https://github.com/devahmedshendy/geocoder-api-task.git geocoder
 cd geocoder
@@ -33,7 +35,7 @@ mvn clean package
 docker run -it --rm -p 5000:5000 --name geocoder devahmedshendy/geocoder-api:0.2
 ```
 
-* **Talking to the API**
+* **Test The API**
 ```
 curl http://localhost:5000/camel/geocoder?address=cairo
 ```
